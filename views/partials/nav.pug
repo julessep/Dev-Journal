@@ -1,0 +1,25 @@
+//- if session.passport
+//-   span #{session.passport.user.username}
+  //- form(method="POST")
+  //-   button(type="submit" formaction="/logout") Logout
+  //- a(href="/favorites") Favorites
+//-   br
+//- else if !session.passport
+//-   button
+//-     a(href="/login") Login
+//- a(href="/parks" id="hr") Explore Parks
+
+nav(class="navbar navbar-expand-lg")
+  if session.passport
+      //- brand/logo
+    p(class="navbar-brand nav-item") Dev Journal
+    a(class="btn btn-outline-primary nav-link col-sm explore" href="/parks") New Note
+    div(class="collapse navbar-collapse")
+    //- a(class="btn btn-outline-primary button-divide favorite" href="/favorites") Favorites
+    form(method="POST")
+      button(class="btn btn-outline-primary button-space logout" type="submit" formaction="/logout") Logout
+  else if !session.passport
+              //- login button
+    a(class="btn btn-primary nav-link button-divide favorite" href="/login") Login
+    //- register button
+    a(class="btn btn-info nav-link button-space" href="/register") Register
