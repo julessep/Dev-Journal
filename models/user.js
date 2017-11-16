@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   
   User.associate = function(models) {
-    User.hasMany(models.Notes, {
+    User.hasMany(models.Note, {
       foreignKey: "userId"
     });
   };
