@@ -8,6 +8,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.use(require('./authRoute'));
-// router.use(require('./notesRoute'));
+router.use(require('./notesRoute'));
 
 module.exports = router;
