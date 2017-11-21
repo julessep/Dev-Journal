@@ -14,9 +14,11 @@ module.exports.postNote = (req, res, next) => {
     userId: req.session.passport.user.id,
     title: req.body.title,
     body: req.body.body,
-    date_added: req.body.date
+    links: req.body.links,
+    date_added: new Date().toISOString()
   })
   .then( () => {
+    console.log("DATE?!", req.body.date)
     res.redirect('notes');
   })
   .catch( (err) => {
