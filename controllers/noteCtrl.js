@@ -1,7 +1,7 @@
 'use strict'
 
 const passport = require('passport');
-// let currentNote = req.params.id;
+let allNotes;
 
 module.exports.noteForm = (req, res, next) => {
     res.render('add-note')
@@ -16,8 +16,8 @@ module.exports.postNote = (req, res, next) => {
     date_added: req.body.date
   })
   .then( () => {
-    // res.redirect('notes');
-    console.log("hi")
+    res.redirect('notes');
+    // console.log("hi")
   })
   .catch( (err) => {
     console.log(err);    
@@ -26,10 +26,14 @@ module.exports.postNote = (req, res, next) => {
 
 module.exports.getNotes = (req, res, next) => {
   const { Note } = req.app.get('models');
-  Note.findAll()
+  Note.findAll({
+    raw:true
+    // order: ['date_added']
+  })
   .then( (data) => {
-    // res.redirect('notes');
-    console.log("NOTE DATA?", data)
+    allNotes = data;
+    // console.log("ALL NOTES", allNotes[2].title)
+    res.render('view-notes', {allNotes});
   })
   .catch( (err) => {
     console.log(err);    
