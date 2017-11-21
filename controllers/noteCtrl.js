@@ -24,6 +24,18 @@ module.exports.postNote = (req, res, next) => {
   });
 };
 
+module.exports.getNotes = (req, res, next) => {
+  const { Note } = req.app.get('models');
+  Note.findAll()
+  .then( (data) => {
+    // res.redirect('notes');
+    console.log("NOTE DATA?", data)
+  })
+  .catch( (err) => {
+    console.log(err);    
+  });
+};
+
 
 // module.exports.getCurrentNote = (req, res, next) => {
 //   const { Note, Tag } = req.app.get('models');

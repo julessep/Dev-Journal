@@ -14,6 +14,7 @@ const {
 
 // router.post('/note', isLoggedIn, createNote);
 router.get('/note', noteForm);
+router.get('/notes', getNotes);
 router.post('/note', postNote);
 
 module.exports = router;
