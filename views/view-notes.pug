@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+  h1 Your Notes!
+  ul
+    each note in allNotes
+      -let url = `notes/` + note.id
+      a(href=url) #{note.title}
+      br

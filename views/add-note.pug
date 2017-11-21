@@ -1,11 +1,16 @@
-form(action="/note", method="POST")
-  label(for="title") Title:
-  input(type="string", name="title")
-  br
-  label(for="body") Body:
-  input(type="string", name="body")
-  br
-  label(for="links") Links:
-  input(type="string", name="links")    
-  br
-  button(type="submit") Add Note!
+extends layout.pug
+
+block content
+  form(action="/note", method="POST")
+    label(for="title") Title:
+    input(type="string", name="title")
+    br
+    label(for="body") Body:
+    input(type="string", name="body")
+    br
+    label(for="links") Links:
+    input(type="string", name="links")    
+    br
+    button(type="submit") Add Note!
+
+  

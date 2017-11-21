@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     body: DataTypes.TEXT,
     links: DataTypes.STRING,
-    date_added: DataTypes.STRING,
-    date_modified: DataTypes.STRING,
+    date_added: DataTypes.DATE,
+    date_modified: DataTypes.DATE,
   }, {timestamps: false});
   
   Note.associate = function(models) {

@@ -5,16 +5,15 @@ const router = Router();
 
 const {
   getNotes,
-  addNote,
-  getCurrentNote,
-  createNote,
+  getSingleNote,
   noteForm,
   postNote
 } = require('../controllers/noteCtrl.js');
 
-// router.post('/note', isLoggedIn, createNote);
-router.get('/note', noteForm);
-router.post('/note', postNote);
+router.get('/note', noteForm); 
+router.post('/note', postNote); // for adding a note
+router.get('/notes', getNotes); // get all user's notes
+router.get('/notes/:id', getSingleNote); //view note details
 
 module.exports = router;
 
@@ -23,3 +22,4 @@ function isLoggedIn(req, res, next) {
       return next();
   res.redirect('/login');
 }
+ 
