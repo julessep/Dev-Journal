@@ -32,14 +32,32 @@ module.exports.getNotes = (req, res, next) => {
   })
   .then( (data) => {
     allNotes = data;
-    // console.log("ALL NOTES", allNotes[2].title)
-    res.render('view-notes', {allNotes});
+    res.render('view-notes', { allNotes });
   })
   .catch( (err) => {
     console.log(err);    
   });
 };
 
+module.exports.getSingleNote = (req, res, next) => {
+  const { Note } = req.app.get('models'); 
+      // console.log(req.session.passport.user.id)
+  Note.findOne({
+    where: {
+      userId: req.session.passport.user.id,
+      id: req.params.id
+    } 
+  })
+  .then( (data) => {
+      // const {dataValues:note} = data;
+      console.log("SINGLE NOTE", data)
+      // res.render('note-details', {note});        
+  })
+  .catch( (err) => {
+    console.log('error!')
+    next(err);
+  });
+};
 
 // module.exports.getCurrentNote = (req, res, next) => {
 //   const { Note, Tag } = req.app.get('models');
