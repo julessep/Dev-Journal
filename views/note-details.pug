@@ -3,3 +3,5 @@ extends layout.pug
 block content
   h3 #{singleNote.title}
   p #{singleNote.body}
+  form(method='POST', action='/notes/' + singleNote.id )
+    button(class="btn btn-outline-primary small-margin", type='submit') Delete Note

@@ -45,7 +45,6 @@ module.exports.getNotes = (req, res, next) => {
 // gets data for viewing details for one note
 module.exports.getSingleNote = (req, res, next) => {
   const { Note } = req.app.get('models'); 
-      console.log("CURRENT USER?", req.session.passport.user.id)
   Note.findOne({
     raw:true,
     where: {
@@ -55,6 +54,23 @@ module.exports.getSingleNote = (req, res, next) => {
   })
   .then( (singleNote) => {
       res.render('note-details', {singleNote});        
+  })
+  .catch( (err) => {
+    console.log('error!')
+    next(err);
+  });
+};
+
+module.exports.deleteNote = (req, res, next) => {
+  const { Note } = req.app.get('models'); 
+  Note.destroy({
+    where: {
+      userId: req.session.passport.user.id,
+      id: req.params.id
+    } 
+  })
+  .then( () => {
+      res.redirect('/notes');        
   })
   .catch( (err) => {
     console.log('error!')

@@ -7,12 +7,14 @@ const {
   getNotes,
   getSingleNote,
   noteForm,
-  postNote
+  postNote,
+  deleteNote
 } = require('../controllers/noteCtrl.js');
 
 router.get('/note', noteForm); 
 router.post('/note', postNote); // for adding a note
 router.get('/notes', getNotes); // get all user's notes
+router.post('/notes/:id', deleteNote); // get all user's notes
 router.get('/notes/:id', getSingleNote); //view note details
 
 module.exports = router;
