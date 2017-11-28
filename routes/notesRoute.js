@@ -6,6 +6,7 @@ const router = Router();
 const {
   getNotes,
   getSingleNote,
+  showEditForm,
   noteForm,
   postNote,
   deleteNote
@@ -16,6 +17,7 @@ router.post('/note', postNote); // for adding a note
 router.get('/notes', getNotes); // get all user's notes
 router.post('/notes/:id', deleteNote); // get all user's notes
 router.get('/notes/:id', getSingleNote); //view note details
+router.get('edit-note/:id', showEditForm)
 
 module.exports = router;
 

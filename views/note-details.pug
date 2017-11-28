@@ -3,5 +3,6 @@ extends layout.pug
 block content
   h3 #{singleNote.title}
   p #{singleNote.body}
+  a(class="btn btn-primary" href='/edit-note/' + singleNote.id ) Edit Note
   form(method='POST', action='/notes/' + singleNote.id )
     button(class="btn btn-outline-primary small-margin", type='submit') Delete Note
