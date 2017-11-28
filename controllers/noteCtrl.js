@@ -77,3 +77,37 @@ module.exports.deleteNote = (req, res, next) => {
     next(err);
   });
 };
+
+module.exports.showEditForm = (req, res, next) => {
+  const { Note } = req.app.get('models');
+  Note.findById({
+    where: {
+      userId: req.session.passport.user.id,
+      id: req.params.id
+    } 
+  })
+  .then( () => {
+    console.log("SINGLE NOTE TO EDIT")
+    // res.render('edit-note', { note })
+  })
+  .catch(err => {
+    next(err);
+  });
+};
+
+module.exports.editNote = (req, res, next) => {
+  const { Note } = req.app.get('models'); 
+  Note.update({
+    where: {
+      userId: req.session.passport.user.id,
+      id: req.params.id
+    } 
+  })
+  .then( () => {
+      res.redirect('/notes');        
+  })
+  .catch( (err) => {
+    console.log('error!')
+    next(err);
+  });
+};

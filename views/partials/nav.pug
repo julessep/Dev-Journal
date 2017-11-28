@@ -17,4 +17,8 @@ nav(class="navbar navbar-expand-lg")
   else if session.passport
     button(class="btn btn-outline-primary small-margin")
       a(href="/notes") View Notes
+    button(class="btn btn-outline-primary small-margin")
+      a(href="/note") New Note!
+    form(method="POST")
+      button(class="btn btn-outline-primary small-margin", type="submit" formaction="/logout") Logout
   
