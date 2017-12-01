@@ -39,6 +39,6 @@
         "twitter": "^1.7.1"
     },
     "devDependencies": {
-        "node-sass": "^4.5.3"
+        "node-sass": "^4.7.2"
     }
 }
