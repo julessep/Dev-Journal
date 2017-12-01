@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  background-color: #c2dde6; }
+
+nav {
+  background-color: orange; }
+
+.nav-links {
+  margin-left: 75%; }
+
+.top-margin {
+  margin-top: 3%; }
+
+.padding-left {
+  margin-left: .5em; }

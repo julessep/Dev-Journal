@@ -1,0 +1,29 @@
+$whitegrey: #f5f8fa;
+$bluegray: #bccbde;
+$cloudblue: #c2dde6;
+$whiteblue: #e6e9f0;
+$purple: #431c5d;
+$orange: #e05915;
+$yellow: #cdd422;
+
+
+body { 
+  margin: 0; 
+  background-color: $cloudblue; 
+}
+
+nav {
+  background-color: orange;
+}
+
+.nav-links {
+  margin-left: 75%;
+}
+
+.top-margin {
+  margin-top: 3%;
+}
+
+.padding-left {
+  margin-left: .5em;
+}
